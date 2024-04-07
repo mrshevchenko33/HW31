@@ -1,3 +1,9 @@
+from student import Student
+
+class GroupOverflowError(Exception):
+    def __init__(self, message="Group capacity exceeded"):
+        self.message = message
+        super().__init__(self.message)
 
 class Group:
     MAX_CAPACITY = 10
@@ -26,8 +32,3 @@ class Group:
     def __str__(self):
         all_students = '\n'.join(str(student) for student in self.group)
         return f'Number:{self.number}\n{all_students}'
-
-class GroupOverflowError(Exception):
-    def __init__(self, message="Group capacity exceeded"):
-        self.message = message
-        super().__init__(self.message)
